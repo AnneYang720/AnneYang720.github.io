@@ -169,6 +169,11 @@ Opening Files:
 
 
 ## Virtual Memory
+From virtual memory address to physical address:
+![](../images/csapp/vm_symbol.png)
+![](../images/csapp/vm_e2e.png)
+
+
 
 ## Storage Allocation
 
