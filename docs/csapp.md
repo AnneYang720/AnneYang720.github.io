@@ -177,4 +177,50 @@ From virtual memory address to physical address:
 
 ## Storage Allocation
 
+### Basic Concepts
+![](../images/csapp/storage_basic_policy.png)
+
+### Free Lists
+![](../images/csapp/storage_all_methods.png)
+
+Implicit free lists
+![](../images/csapp/storage_implicit_coalesce.png)
+![](../images/csapp/storage_implicit_summary.png)
+
+Explicit free lists: among the free blocks using pointers
+
+Segregated free lists : Each size class of blocks has its own free list
+
+### Garbage collection
+Memory as a graph & Mark and Sweep Collecting
+
+### Memory-related perils and piBalls
+- Dereferencing bad pointers
+- Reading uninitialized memory
+- Overwriting memory
+- Referencing nonexistent variables
+- Freeing blocks multiple times	
+- Referencing freed blocks
+- Failing to free blocks
+
+
 ## Network Programming
+Sockets
+![](../images/csapp/network_socket.png)
+
+Sockets Interface:
+![](../images/csapp/network_socket_interface.png)
+
+```
+int getaddrinfo(const char *host,   /* Hostname or address */
+    const char *service,            /* Port or service name */
+    const struct addrinfo *hints,   /* Input parameters */
+    struct addrinfo **result)       /* Output linked list */ 
+
+int socket(int domain, int type, int protocol) 
+int bind(int sockfd, SA *addr, socklen_t addrlen);
+int listen(int sockfd, int backlog)
+int accept(int listenfd, SA *addr, int *addrlen)
+int connect(int clientfd, SA *addr, socklen_t addrlen)
+```
+![](../images/csapp/network_descriptor.png)
