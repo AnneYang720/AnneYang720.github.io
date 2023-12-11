@@ -262,8 +262,6 @@ Summary: Approaches to Concurrency
     - Difficult to debug: Event orderings not repeatable 
 
 
-
-
 ## Synchronization
 ### Mapping Variable Instances to Memory 
 1. Global variables
@@ -313,3 +311,18 @@ V(mutex)
     - Class 2: Functions that keep state across multiple invocations
     - Class 3: Functions that return a pointer to a static variable
     - Class 4: Functions that call thread-unsafe functions O
+
+
+## Thread-Level Parallelism
+### Parallel Computing Hardware
+- Multicore
+    - Multiple separate processors on single chip
+- Hyperthreading
+    - Efficient execution of multiple threads on single core
+    ![](../images/csapp/parallelism_hyperthreading.png)
+
+### Thread-Level Parallelism
+Splitting program into independent tasks
+    Example 1: Parallel summation
+Divide-and conquer parallelism
+    Example 2: Parallel quicksort
