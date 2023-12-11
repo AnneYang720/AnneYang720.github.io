@@ -224,3 +224,92 @@ int accept(int listenfd, SA *addr, int *addrlen)
 int connect(int clientfd, SA *addr, socklen_t addrlen)
 ```
 ![](../images/csapp/network_descriptor.png)
+
+
+## Concurrent Programming
+### Approaches for Writing Concurrent Servers 
+Allow server to handle multiple clients concurrently 
+1. Process-based 
+    - Kernel automatically interleaves multiple logical flows
+    - Each flow has its own private address space 
+2. Event-based 
+    - Programmer manually interleaves multiple logical flows
+    - All flows share the same address space
+    - Uses technique called I/O multiplexing 
+3. Thread-based
+    - Kernel automatically interleaves multiple logical flows
+    - Each flow shares the same address space
+    - Hybrid of of process-based and event-based
+
+![](../images/csapp/concurrent_process.png)
+![](../images/csapp/concurrent_threads.png)
+
+### Approaches comparison
+Summary: Approaches to Concurrency 
+1. Process-based
+    - Hard to share resources: Easy to avoid unintended sharing
+    - High overhead in adding/removing clients
+2. Event-based
+    - Tedious and low level
+    - Total control over scheduling
+    - Very low overhead
+    - Cannot create as fine grained a level of concurrency
+    - Does not make use of multi-core
+3. Thread-based
+    - Easy to share resources: Perhaps too easy
+    - Medium overhead
+    - Not much control over scheduling policies
+    - Difficult to debug: Event orderings not repeatable 
+
+
+
+
+## Synchronization
+### Mapping Variable Instances to Memory 
+1. Global variables
+    - Def: Variable declared outside of a function
+    - <span style="color: red;">Virtual memory contains exactly one instance of any global variable</span>
+2. Local variables
+    - Def: Variable declared inside function without static attribute
+    - <span style="color: red;">Each thread stack contains one instance of each local variable</span>
+3. Local static variables
+    - Def: Variable declared inside function with the static attribute
+    - <span style="color: red;">Virtual memory contains exactly one instance of any local static variable</span>
+
+### Semaphores
+1. <span style="color: red;">Semaphore</span>: non-negative global integer synchronization variable. Manipulated by P and V operations. <span style="color: red;">Semaphore invariant: (s >= 0)</span>
+2. P(s)
+    - If s is nonzero, then decrement s by 1 and return immediately.
+        - Test and decrement operations occur atomically (indivisibly)
+    - Ifs is zero, then suspend thread until s becomes nonzero and the thread is restarted by a V operation.
+    - After restarting, the P operation decrements s and returns control to the caller.
+3. V(s):
+    - Increment s by 1.
+        - Increment operation occurs atomically
+    - If there are any threads blocked in a P operation waiting for s to become non-zero, then restart exactly one of those threads, which then completes its P operation by decrementing s
+
+#### Using Semaphores for Mutual Exclusion
+Terminology:
+1. <span style="color: red;">Binary semaphore</span>: semaphore whose value is always 0 or 1
+2. <span style="color: red;">Mutex</span>: binary semaphore used for mutual exclusion
+    - P operation: <span style="color: red;">"locking"</span> the mutex
+    - V operation: <span style="color: red;">"unlocking"</span> or <span style="color: red;">"releasing"</span> the mutex
+    - <span style="color: red;">"Holding"</span> a mutex: locked and not yet unlocked
+3. <span style="color: red;">Counting semaphore</span>: used as a counter for set of available resources
+
+```C
+mutex = 1
+
+P(mutex)
+cnt++
+V(mutex)
+```
+
+### Crucial concept: Thread Safety
+- Functions called from a thread must be thread-safe
+- Def: A function is thread-safe if it will always produce correct results when called repeatedly from multiple concurrent threads
+- Classes of thread-unsafe functions:
+    - Class 1: Functions that do not protect shared variables
+    - Class 2: Functions that keep state across multiple invocations
+    - Class 3: Functions that return a pointer to a static variable
+    - Class 4: Functions that call thread-unsafe functions O
