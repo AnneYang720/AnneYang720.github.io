@@ -72,7 +72,7 @@ stack structure
 
 ## The Memory Hierarchy
 Traditional Bus Structure Connecting CPU and Memory
-![](../images/csapp/bus_structure.png)
+![](../../images/csapp/bus_structure.png)
 
 Memory Layout
 !!!!!!!!where the hell is this pic from???????
@@ -87,7 +87,7 @@ Memory Hierarchy
 - L6 Remote secondary storage(eg. web servers)
 
 ## Cache Memories
-![](../images/csapp/cache_read.png)
+![](../../images/csapp/cache_read.png)
 
 
 ## ECF - Excetion Control Flow
@@ -169,23 +169,27 @@ Opening Files:
 
 
 ## Virtual Memory
+![](../../images/csapp/vm_structure.png)
+![](../../images/csapp/vm_physical.png)
+![](../../images/csapp/vm_use.png)
+
 From virtual memory address to physical address:
-![](../images/csapp/vm_symbol.png)
-![](../images/csapp/vm_e2e.png)
+![](../../images/csapp/vm_symbol.png)
+![](../../images/csapp/vm_e2e.png)
 
 
 
 ## Storage Allocation
 
 ### Basic Concepts
-![](../images/csapp/storage_basic_policy.png)
+![](../../images/csapp/storage_basic_policy.png)
 
 ### Free Lists
-![](../images/csapp/storage_all_methods.png)
+![](../../images/csapp/storage_all_methods.png)
 
 Implicit free lists
-![](../images/csapp/storage_implicit_coalesce.png)
-![](../images/csapp/storage_implicit_summary.png)
+![](../../images/csapp/storage_implicit_coalesce.png)
+![](../../images/csapp/storage_implicit_summary.png)
 
 Explicit free lists: among the free blocks using pointers
 
@@ -206,10 +210,10 @@ Memory as a graph & Mark and Sweep Collecting
 
 ## Network Programming
 Sockets
-![](../images/csapp/network_socket.png)
+![](../../images/csapp/network_socket.png)
 
 Sockets Interface:
-![](../images/csapp/network_socket_interface.png)
+![](../../images/csapp/network_socket_interface.png)
 
 ```
 int getaddrinfo(const char *host,   /* Hostname or address */
@@ -223,7 +227,7 @@ int listen(int sockfd, int backlog)
 int accept(int listenfd, SA *addr, int *addrlen)
 int connect(int clientfd, SA *addr, socklen_t addrlen)
 ```
-![](../images/csapp/network_descriptor.png)
+![](../../images/csapp/network_descriptor.png)
 
 
 ## Concurrent Programming
@@ -241,8 +245,8 @@ Allow server to handle multiple clients concurrently
     - Each flow shares the same address space
     - Hybrid of of process-based and event-based
 
-![](../images/csapp/concurrent_process.png)
-![](../images/csapp/concurrent_threads.png)
+![](../../images/csapp/concurrent_process.png)
+![](../../images/csapp/concurrent_threads.png)
 
 ### Approaches comparison
 Summary: Approaches to Concurrency 
@@ -319,7 +323,7 @@ V(mutex)
     - Multiple separate processors on single chip
 - Hyperthreading
     - Efficient execution of multiple threads on single core
-    ![](../images/csapp/parallelism_hyperthreading.png)
+    ![](../../images/csapp/parallelism_hyperthreading.png)
 
 ### Thread-Level Parallelism
 Splitting program into independent tasks
