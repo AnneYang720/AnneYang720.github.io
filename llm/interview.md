@@ -63,45 +63,39 @@ The neural network is likely to predict one class for all types of inputs becaus
 
 A major drawback to using a perceptron is that they can only linearly separable functions and cannot handle non-linear inputs.
 
-15. How will you differentiate between a multi-class and multi-label classification problem?
+15. **How will you differentiate between a multi-class and multi-label classification problem?**
 
 In a multi-class classification problem, the classification task has more than two mutually exclusive classes whereas in a multi-label problem each label has a different classification task, however, the tasks are related somehow. For example, classifying a set of images of animals which may be cats, dogs, or bears is a multi-class classification problem that assumes that each sample has only one label meaning an image can be classified as either a cat or a dog but not both at the same time. Now imagine that you want to process the below image. The image shown below needs to be classified as both cat and dog because the image shows both the animals. In a multi-label classification problem, a set of labels are assigned to each sample and the classes are not mutually exclusive. So, a pattern can belong to one or more classes in a multi-label classification problem.
 
-16. What do you understand by transfer learning?
+16. **What do you understand by transfer learning?**
 
-You know how to ride a bicycle, so it will be easy for you to learn to drive a bike. This is transfer learning. You have some skill and you can learn a new skill that relates to it without having to learn it from scratch. Transfer learning is a process in which the learning can be transferred from one model to another without having to make the model learn everything from scratch. The features and weights can be used for training the new model providing reusability. Transfer learning works well in training a model easily when there is limited data.
+You have some skill and you can learn a new skill that relates to it without having to learn it from scratch. Transfer learning is a process in which the learning can be transferred from one model to another without having to make the model learn everything from scratch. The features and weights can be used for training the new model providing reusability. Transfer learning works well in training a model easily when there is limited data.
 
-17. What is fine-tuning and how is it different from transfer learning?
+17. **What is fine-tuning and how is it different from transfer learning?**
 
 In transfer learning, the feature extraction part remains untouched and only the prediction layer is retrained by changing the weights based on the application. On the contrary in fine-tuning, the prediction layer along with the feature extraction stage can be retrained making the process flexible.
 
-18. Why do we use convolutions for images instead of using fully connected layers?
+18. **Why do we use convolutions for images instead of using fully connected layers?**
 
 Each convolution kernel in a CNN acts like its own feature detector and has a partially in-built translation in-variance. Using convolutions lets one preserve, encode and make use of the spatial information from the image, unlike fully connected layers that do not have any relative spatial information.
 
-19. Can you name a few data structures that are commonly used in deep learning?
+19. **Can you name a few data structures that are commonly used in deep learning?**
 
 You can talk about computational graphs, tensors, matrices, data frames, and lists.
 
-Let the FOMO kick in! Explore ProjectPro's Data Science Project Ideas Repository to start exploring the exciting domain of Data Science today!
-
-20. What are the benefits of using batch normalization when training a neural network?
-
-Batch normalization optimizes the network training process making it easier to build and faster to train a deep neural network.
+20. **What are the benefits of using batch normalization when training a neural network?**
 
 Batch normalization regulates the values going into each activation function making activation functions more viable because non-linearities that don’t seem to work well become viable with the use of batch normalization.
 
 Batch normalization makes it easier to initialize weights and also allows the use of higher learning rates ultimately increasing the speed at which the network trains.
 
-21. How do you bring balance to the force when handling imbalanced datasets in deep learning?
+21. **How do you bring balance to the force when handling imbalanced datasets in deep learning?**
 
-It is next to impossible to have a perfectly balanced real-world dataset when working on deep learning problems so there will be some level of class imbalance within the data that can be tackled either by –
+- Data: oversampling the minority class, undersampling the majority class
+- Loss Function: weighted cross-entropy loss, focal loss
+- Evaluation Metric: not just accuracy; AUC-ROC, AUC-PR, F1-score, precision, recall
 
-Weight Balancing -
-
-Over and Under Sampling
-
-22. What do you understand by Gradient Clipping?
+22. **What do you understand by Gradient Clipping?**
 
 Gradient Clipping is used to deal with the exploding gradient problem that occurs during the backpropagation. The gradient values are forced element-wise to a particular minimum or maximum value if the gradient has crossed the expected range. Gradient clipping provides numerical stability while training a neural network but does not provide any performance improvements.
 
